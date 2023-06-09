@@ -1,0 +1,44 @@
+This directory contains examples of how to submit compute jobs in different
+languages to the SLURM job scheduler on HPC Orion. Description of contents is
+below. Note, in order for any example to run properly you need to enter your 
+fund account number in the slurm batch script.
+
+_________________________________________________________________________________
+_________________________________________________________________________________
+Fortran
+_________________________________________________________________________________
+
+slurm_scripts/slurm_example1.sh 
+run fortran hello world a single time, no parallelization
+
+Inputs: fortran_programs/hw77, fortran_programs/hw90
+Outputs: slurm_scripts/outputs/example1.out, slurm_scripts/errors/example1.err
+
+Description: This example is equivalent to running the fortran program once on a 
+normal, non-hpc computer. The SLURM batch script names the compute job "example1",
+tells the SLURM job scheduler to use 1 node to run the compiled fortran program 
+hw77 (helloworld.f) one time on a single processing core (CPU), then run the 
+compiled fortran program hw90 (helloworld.f90) one time on a single processing 
+core. SLURM outputs all echo statements in the batch script as well as any print 
+statements in the fortran program to the file example1.out. If any errors were 
+encountered, SLURM writes them to the file example1.err, otherwise this file will 
+be empty.
+_________________________________________________________________________________
+
+slurm_scripts/slurm_example2.sh
+run a fortran program with different inputs many times simultaneously (embarassingly parallel)
+
+Inputs: fortran_programs/rw90, inputs/dummy_data.txt, inputs/dummy_scalefactors.txt
+Outputs: results/variable1_#.txt, slurm_scripts/outputs/example2_#.out, slurm_scripts/errors/example2_#.err
+
+Description: This is an example of embarassingly parallel computation. We run 1 
+script 100 times simultaneously. Different inputs are sent to each execution, but
+each execution is independent of every other execution (no run requires data from
+the completion of any other run). The SLURM batch script names the compute job
+"example2" and tells the SLURM job scheduler to execute all statements in the batch
+script 100 times simultaneously, each time on a single processing core/CPU. The
+batch script says to include the SLURM array task id in the name of each .out and
+.err file. This task id is also used to pass a different input to the fortran 
+program, which will then write a different data output file with the task id 
+included in the file name each time the program executes.
+_________________________________________________________________________________
