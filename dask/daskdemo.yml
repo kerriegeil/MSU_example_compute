@@ -1,0 +1,13 @@
+name: daskdemo
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - dask
+  - distributed
+  - netcdf4
+  - numpy
+  - matplotlib
+  - xarray
+  - jupyter
+
