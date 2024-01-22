@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #SBATCH -J example2           # job name
-#SBATCH -A xxx                # fund account number
-#SBATCH -p 400p48h            # partition name
+#SBATCH -A xxxxxx-xxxxxx      # fund account number
+#SBATCH -p orion              # partition name
 #SBATCH -q normal             # queue name
 #SBATCH --array=0-99          # execute batch script 100 times simultaneously, each time using 1 task/CPU
 #SBATCH -t 00:00:30           # amount of time allowed before the job times out 

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #SBATCH -J example1        # job name
-#SBATCH -A xxx             # fund account number
-#SBATCH -p 400p48h         # partition name
+#SBATCH -A xxxxxx-xxxxxx   # fund account number
+#SBATCH -p orion           # partition name
 #SBATCH -q normal          # queue name
 #SBATCH -N 1               # number of nodes
 #SBATCH -n 1               # number of tasks (a default task uses 1 core/CPU)
