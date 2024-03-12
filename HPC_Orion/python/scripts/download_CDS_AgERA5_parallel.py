@@ -25,7 +25,6 @@ import dask
 from dask.distributed import Client,LocalCluster
 
 # user-specific variables
-# basedir='/work/hpc/datasets/unfao_sera/'
 basedir='/path/to/our/shared/datasets/dir/'
 outputdir=basedir+'temporary/AgERA5/'
 year_first = 1990
